@@ -8,4 +8,65 @@
 
 body {
   font-family: "Roboto";
+
+  width: 100vw;
+  max-height: 100vh;
+
+  display: grid;
+  grid-template: 1fr 5fr / 1fr 5fr;
+}
+
+.sidebar {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+
+  height: 100vh;
+
+  grid-area: 1 / 1 / 3 / 2;
+
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 50px;
+}
+
+.sidebar > div {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.logo {
+  font-size: 24px;
+}
+
+.logo ~ div {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.logo ~ div > div {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.sidebar svg {
+  fill: currentColor;
+
+  width: auto;
+  height: 1em;
+}
+
+.logo svg {
+  height: 2em;
+}
+
+.nav {
+  grid-column: 2 / 3;
+}
+
+.main {
+  background-color: lightgrey;
+
+  grid-column: 2 / 3;
 }
