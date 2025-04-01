@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100vw;
+  padding: 0 150px;
+}
+
+.image-container {
+  background-image: url("images/photo-1585202900225-6d3ac20a6962.avif");
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+}
+
+@font-face {
+  font-family: customFont;
+  src: url("fonts/Norse-Bold.otf");
+}
+
+.image-container .logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: customFont;
+  font-size: 60px;
+  background-color: rgb(0, 0, 0, 0.35);
+  color: white;
+  padding: 10px 90px;
+  margin: 150px 0;
+}
+
+.logo-container img {
+  max-width: 75px;
+  max-height: 75px;
+}
+
+.sign-up-container {
+  background-color: #fafafa;
+}
+
+.sign-up-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  gap: 25px;
+}
+
+form .text-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 15px;
+  gap: 15px;
+  padding: 0 150px 25px 25px;
+}
+
+form fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #ffffff;
+  box-shadow: -5px 2px 5px rgba(0, 0, 0, 0.25);
+  border: 0;
+  padding: 25px 25px;
+  gap: 15px;
+}
+
+fieldset p {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+fieldset .info-container {
+  display: flex;
+  gap: 50px;
+}
+
+.info-container label {
+  font-size: 12px;
+}
+
+.info-container .info-left, 
+.info-container .info-right {
+  gap: 10px;
+}
+
+.info-container div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info-container input {
+  width: 200px;
+  height: 20px;
+}
+
+.info-container input:focus {
+  border: 1px solid blue;
+}
+
+.info-container input:invalid {
+  border: 1px solid red;
+}
+
+form .submit-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 25px;
+  gap: 15px;
+}
+
+.submit-container button {
+  background-color: #596D48;
+  color: white;
+  border-radius: 5px;
+  height: 35px;
+  width: 150px;
+  max-width: 150px;
+  border: 0;
+}
+
+.submit-container p {
+  font-size: 12px;
+}
+
+.submit-container a {
+  color: #596D48;
+  font-weight: bold;
+  text-decoration: none;
+}

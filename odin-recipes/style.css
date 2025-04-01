@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    /* border: 2px solid red; */
+}
+
+body {
+    background-color: rgb(230, 230, 250);
+}
+
+img {
+    display: block;
+    margin: auto;
+}
+
+.card {
+    background: rgb(0, 255, 0, 0.25);
+    margin: 25px;
+    padding: 25px;
+}
+
+.card h1 {
+    text-align: center;
+    font-size: 50px;
+    background-color: rgb(255, 255, 255, 1);
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+.card .main-menu {
+    font-size: 25px;
+    background-color: rgb(255, 255, 255, 1);
+}
+
+.main-menu li {
+    margin: 10px auto;
+}
