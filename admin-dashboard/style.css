@@ -20,6 +20,7 @@ body {
   background-color: black;
   color: white;
   font-size: 20px;
+  font-weight: bold;
 
   height: 100vh;
 
@@ -27,7 +28,7 @@ body {
 
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding-top: 20px;
   gap: 50px;
 }
 
@@ -37,12 +38,13 @@ body {
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 28px;
 }
 
 .logo ~ div {
   display: grid;
   grid-template-columns: 1fr;
+  gap: 15px;
 }
 
 .logo ~ div > div {
@@ -55,6 +57,13 @@ body {
 
   width: auto;
   height: 1em;
+
+  justify-self: center;
+  align-self: center;
+}
+
+.sidebar p {
+  align-self: center;
 }
 
 .logo svg {
@@ -63,6 +72,29 @@ body {
 
 .nav {
   grid-column: 2 / 3;
+
+  font-size: 20px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav > div {
+  display: flex;
+}
+
+.nav svg {
+  width: auto;
+  height: 1.25em;
+}
+
+.top-nav .search-bar {
+  background-color: lightgray;
+  border-radius: 100px;
+
+  width: 50%;
+  height: 1.25em;
 }
 
 .main {
