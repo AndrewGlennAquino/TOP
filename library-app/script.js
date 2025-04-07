@@ -1,5 +1,4 @@
-const myLibrary = []; // array of all books
-const container = document.querySelector(".container"); // container for all Book cards
+const container = document.querySelector(".container"); // Container for all Book cards
 
 /**
  * Book constructor where each book has a randomUUID
@@ -16,13 +15,15 @@ function Book(title, author, hasRead) {
 }
 
 /**
- * Function that takes a Book as an argument, then returns a new Book card
+ * Function that takes a Book as an argument, then appends a new Book card to container
  *
  * @param {Book} book
+ * @returns New Book card
  */
 function createBookCard(book) {
   let card = document.createElement("div");
-  card.classList.add("card", book.id);
+  card.classList.add("card");
+  card.setAttribute("id", book.id);
 
   let title = document.createElement("p");
   title.classList.add("title");
@@ -43,20 +44,29 @@ function createBookCard(book) {
     hasRead.style.color = "rgb(200, 0, 0)";
   }
 
-  // TODO: create logic to change hasRead status if user clicks button
+  // Change the status of book.hasRead on button click
   let readButton = document.createElement("button");
-  readButton.classList.add("card-button", book.id);
-  readButton.textContent = "I read this!";
-  readButton.addEventListener("click", (event) => {
-    console.log('"I read this!" button');
+  readButton.classList.add("card-button");
+  readButton.textContent = "I Read This!";
+  readButton.addEventListener("click", () => {
+    book.hasRead = !book.hasRead;
+
+    if (book.hasRead) {
+      hasRead.textContent = "Have read!";
+      hasRead.style.color = "rgb(0, 200, 0)";
+    } else {
+      hasRead.textContent = "Have not read!";
+      hasRead.style.color = "rgb(200, 0, 0)";
+    }
   });
 
-  // TODO: create logic to remove book
+  // Removes card from DOM on click
   let removeButton = document.createElement("button");
-  removeButton.classList.add("card-button", book.id);
+  removeButton.classList.add("card-button");
   removeButton.textContent = "Remove";
-  removeButton.addEventListener("click", (event) => {
-    console.log('"Remove" button');
+  removeButton.addEventListener("click", () => {
+    const element = document.getElementById(book.id);
+    container.removeChild(element);
   });
 
   card.appendChild(title);
@@ -65,16 +75,44 @@ function createBookCard(book) {
   card.appendChild(readButton);
   card.appendChild(removeButton);
 
-  container.appendChild(card);
+  return card;
 }
 
-/**
- * TODO: create logic for adding new book
- */
+// Elements from dialog element and form element
 const newBookButton = document.getElementById("new-book-button");
+const newBookDialog = document.getElementById("new-book-dialog");
+const newBookTitle = document.getElementById("new-book-title");
+const newBookAuthor = document.getElementById("new-book-author");
+const addNewBookButton = document.getElementById("add-new-book-button");
+const cancelNewBookButton = document.getElementById("cancel-new-book-button");
 
-newBookButton.addEventListener("click", (event) => {
-  // TODO: remove test book
-  const testBook = new Book("Title", "Author", true);
-  createBookCard(testBook);
+/**
+ * Open dialog box for user to enter title and author information
+ */
+newBookButton.addEventListener("click", () => {
+  newBookDialog.showModal();
+});
+
+/**
+ * Creates new Book card on click with provided user information
+ */
+addNewBookButton.addEventListener("click", (event) => {
+  let title;
+  let author;
+
+  event.preventDefault();
+  title = newBookTitle.value;
+  author = newBookAuthor.value;
+
+  let newBook = new Book(title, author, false);
+  container.appendChild(createBookCard(newBook));
+  newBookDialog.close();
+});
+
+/**
+ * Close dialog box without taking an action
+ */
+cancelNewBookButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  newBookDialog.close();
 });

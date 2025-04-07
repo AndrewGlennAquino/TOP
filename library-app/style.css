@@ -59,6 +59,53 @@ svg {
   border: 4px solid rgb(249, 249, 249);
 }
 
+#new-book-dialog {
+  border: 5px solid rgb(96, 0, 0);
+  border-radius: 10px;
+
+  width: 500px;
+  height: auto;
+
+  justify-self: center;
+  align-self: center;
+
+  padding: 15px;
+}
+
+#new-book-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#new-book-form label {
+  font-size: 20px;
+}
+
+#new-book-form .text-box {
+  width: 100%;
+  height: 25px;
+  padding: 5px;
+}
+
+#new-book-form .dialog-button {
+  border: 1px solid rgb(96, 0, 0);
+  border-radius: 10px;
+
+  background-color: rgb(249, 249, 249);
+
+  width: 100px;
+  height: auto;
+}
+
+#new-book-form .dialog-button:hover {
+  background-color: rgb(96, 0, 0);
+  color: rgb(249, 249, 249);
+}
+
+::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -111,7 +158,7 @@ svg {
   font-size: 16px;
   font-weight: bold;
 
-  border: 4px solid rgb(96, 0, 0);
+  border: 2px solid rgb(96, 0, 0);
   border-radius: 10px;
 
   width: 100%;
