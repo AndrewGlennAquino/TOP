@@ -67,43 +67,102 @@ const playerLogic = (function () {
 })();
 
 /**
- * TODO: implement gameLogic
+ * Checks for a win or tie
  */
 const gameLogic = (function () {
   let win = false;
+  let turnCount = 0;
 
-  // TODO: implement checkHorizontal
-  function checkHorizontal(board) {
+  // Function that checks for row wins
+  function checkRows(board) {
+    // Check first row
+    if(board[0] !== undefined && board[1] !== undefined && board[2] !== undefined) {
+      if(board[0] === board[1] && board[1] === board[2]) {
+        win = true;
+      }
+    }
 
+    // Check second row
+    if(board[3] !== undefined && board[4] !== undefined && board[5] !== undefined) {
+      if(board[3] === board[4] && board[4] === board[5]) {
+        win = true;
+      }
+    }
+
+    // Check third row
+    if(board[6] !== undefined && board[7] !== undefined && board[8] !== undefined) {
+      if(board[6] === board[7] && board[7] === board[8]) {
+        win = true;
+      }
+    }
   }
 
-  // TODO: implement checkVertical
-  function checkVertical(board) {
-
+  // Function that checks for column wins
+  function checkColumns(board) {
+        // Check first column
+        if(board[0] !== undefined && board[3] !== undefined && board[6] !== undefined) {
+          if(board[0] === board[3] && board[3] === board[6]) {
+            win = true;
+          }
+        }
+    
+        // Check second column
+        if(board[1] !== undefined && board[4] !== undefined && board[7] !== undefined) {
+          if(board[1] === board[4] && board[4] === board[7]) {
+            win = true;
+          }
+        }
+    
+        // Check third column
+        if(board[2] !== undefined && board[5] !== undefined && board[8] !== undefined) {
+          if(board[2] === board[5] && board[5] === board[8]) {
+            win = true;
+          }
+        }
   }
 
-  // TODO: implement checkDiagonal
+  // Function that checks for diagonal wins
   function checkDiagonal(board) {
-
+        // Check forward diagonal
+        if(board[6] !== undefined && board[4] !== undefined && board[2] !== undefined) {
+          if(board[6] === board[4] && board[4] === board[2]) {
+            win = true;
+          }
+        }
+    
+        // Check backward diagonal
+        if(board[0] !== undefined && board[4] !== undefined && board[8] !== undefined) {
+          if(board[0] === board[4] && board[4] === board[8]) {
+            win = true;
+          }
+        }
   }
 
-  // TODO: implement checkTie
-  function checkTie(count) {
+  // Function that checks for a tie, then resets variables for next game
+  function checkTie() {
+    ++turnCount;
 
+    if(turnCount >= 6 && !win) {
+      alert("TIE!");
+      turnCount = 0;
+    }
   }
 
-  // Function that checks for a win
+  // Function that checks for a win, then resets variables for next game
   function checkWin(board) {
-    checkHorizontal(board);
-    checkVertical(board);
+    checkRows(board);
+    checkColumns(board);
     checkDiagonal(board);
 
     if (win) {
       alert("WIN");
+      win = false;
+      turnCount = 0;
     }
   }
 
   return {
+    win,
     checkTie,
     checkWin,
   };
@@ -116,7 +175,7 @@ const game = (function () {
   // Function that starts a new game by creating a new board array, and for each square, add an event listener that 
   // on click, takes a players turn, then the computer's turn. For each click, check if there is a win or a tie
   function start() {
-    let board = [];
+    const board = [];
     gameBoard.createBoard();
 
     for (let i = 0; i < 9; i++) {
@@ -126,7 +185,8 @@ const game = (function () {
         playerLogic.humanTurn(i, board);
         playerLogic.computerTurn(board);
 
-        console.log(board);
+        gameLogic.checkWin(board);
+        gameLogic.checkTie();
       });
     }
   }
