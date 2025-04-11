@@ -7,7 +7,7 @@ import { contactPage } from "./contact-page.js";
 // Content container
 export const content = document.getElementById("content");
 
-// Home page by default
+// Home page by default 
 homePage.create();
 
 // Get all button elements
