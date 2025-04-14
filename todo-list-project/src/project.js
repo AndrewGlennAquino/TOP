@@ -4,11 +4,13 @@
 export class Project {
   #title;
   #todoItemArray; // Private array that holds the list of TodoItem objects
+  #uuid;
 
   // Constructor that takes a title argument and instantiates todoItemArray
   constructor(title) {
     this.#title = title;
     this.#todoItemArray = [];
+    this.#uuid = crypto.randomUUID();
   }
 
   // Getter and setter for title
@@ -35,5 +37,10 @@ export class Project {
   // Getter for todoItemArray
   get toDoItemArray() {
     return this.#todoItemArray;
+  }
+
+  // Getter for uuid
+  get uuid() {
+    return this.#uuid;
   }
 }

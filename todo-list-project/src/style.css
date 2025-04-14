@@ -2,7 +2,7 @@
 
 /* Global variables of webpage colors */
 :root {
-  --sidebar-color: #ece6ff;
+  --sidebar-color: rgba(236, 230, 255, .25);
   --primary-color: #644a8e;
   --primary-color-alpha: rgba(100, 74, 142, 0.25);
   --background-color: #faf8f6;
@@ -33,52 +33,53 @@ body {
 
   height: 100%;
 
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-}
+  display: grid;
+  grid-auto-rows: max-content;
+  gap: 15px;
 
-.sidebar-container > * {
   padding: 10px;
 }
 
-.logo-container {
-  color: var(--primary-color);
-  
-  font-size: 40px;
-  font-style: italic;
-
+.sidebar-container > * {
   display: grid;
-  grid-template: 1fr / 1fr 5fr;
-  justify-content: center;
+  grid-template-columns: 1fr 5fr;
+
+  justify-items: left;
   align-items: center;
 }
 
-.logo-container .logo-image {
+.sidebar-container > * > img {
+  justify-self: center;
+}
+
+.logo {
+  color: var(--primary-color);
+  
+  font-size: 32px;
+}
+
+.logo .logo-image {
   filter: var(--svg-color-filter);
 
   width: 1em;
   height: auto;
 }
 
-.sidebar-container #add-new-project-button {
+.sidebar-container button {
   background-color: transparent;
   color: var(--primary-color);
 
   border: none;
 
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 
-  display: grid;
-  grid-template: 1fr / 1fr 5fr;
-  justify-items: left;
-  align-items: center;
+  height: 2em;
 }
 
-.sidebar-container #add-new-project-button:hover {
+.sidebar-container button:hover {
   background-color: var(--primary-color-alpha);
-  border-radius: 100px;
+  border-radius: 10px;
 }
 
 .plus-circle-image {
@@ -86,4 +87,77 @@ body {
 
   width: 1.5em;
   height: auto;
+}
+
+.projects-container {
+  grid-template-columns: 1fr;
+}
+
+.form-popup {
+  background-color: var(--primary-color-alpha);
+
+  border-radius: 10px;
+
+  width: 100%;
+
+  display: none;
+}
+
+.form-popup .form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  padding: 5px;
+}
+
+.form-popup label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form-popup input {
+  background-color: var(--background-color);
+  border: none;
+
+  height: 1.5em;
+
+  padding: 5px;
+}
+
+.form-container input:focus {
+  outline: none;
+}
+
+.form-popup .form-buttons {
+  display: flex;
+  gap: 15px;
+
+  margin-left: auto;
+}
+
+.form-buttons button {
+  font-size: 16px;
+
+  width: 5em;
+}
+
+.projects-container .project {
+  font-size: 16px;
+
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  justify-items: left;
+  align-items: center;
+}
+
+.project .cube-image {
+  filter: var(--svg-color-filter);
+
+  width: 1.5em;
+  height: auto;
+
+  justify-self: center;
 }

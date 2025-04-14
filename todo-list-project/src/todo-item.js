@@ -1,5 +1,5 @@
 /**
- * TodoItem class with getters and setters
+ * TodoItem class that generates a unique uuid with getters and setters
  */
 export class TodoItem {
   #title;
@@ -7,6 +7,7 @@ export class TodoItem {
   #dueDate;
   #priority;
   #checkList;
+  #uuid;
 
   constructor(title, description, dueDate, priority, checkList) {
     this.#title = title;
@@ -14,6 +15,7 @@ export class TodoItem {
     this.#dueDate = dueDate;
     this.#priority = priority;
     this.#checkList = checkList;
+    this.#uuid = crypto.randomUUID();
   }
 
   get title() {
@@ -34,6 +36,10 @@ export class TodoItem {
 
   get checkList() {
     return this.#checkList;
+  }
+
+  get uuid() {
+    return this.#uuid;
   }
 
   set title(title) {

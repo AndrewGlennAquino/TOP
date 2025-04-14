@@ -8,8 +8,8 @@
 
   <body>
     <div class="sidebar-container">
-      <h1 class="logo-container">
-        <img src="./images/logo.svg" class="logo-image">
+      <h1 class="logo">
+        <img src="./images/logo.svg" class="logo-image" />
         Gawain
       </h1>
 
@@ -18,7 +18,23 @@
         <p>Add new project</p>
       </button>
 
-      <div class="project-list"></div>
+      <div class="projects-container">
+        <!-- Hidden form-popup -->
+        <div class="form-popup" id="form-popup">
+
+          <form class="form-container">
+            <label for="title">New project title:</label>
+            <input type="text" name="title" id="user-input-project-title"/>
+
+            <div class="form-buttons">
+              <button type="submit" id="form-submit-button">Submit</button>
+              <button type="button" id="form-cancel-button">Cancel</button>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
     </div>
 
     <div class="content-container">content-container</div>
