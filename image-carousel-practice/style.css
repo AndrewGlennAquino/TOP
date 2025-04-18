@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-carousel-container {
+  background-color: lightgray;
+
+  width: 50%;
+  height: 250px;
+
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button {
+  background-color: white;
+
+  font-size: 16px;
+
+  border: none;
+  border-radius: 35px;
+
+  width: 35px;
+  height: 35px;
+
+  align-self: center;
+}
+
+button:hover {
+  background-color: gray;
+}
+
+button:active {
+  background-color: white;
+}
+
+.image {
+  background-color: lightgray;
+
+  font-size: 40px;
+  font-weight: bold;
+
+  width: 80%;
+  height: 100%;
+
+  display: none;
+}
+
+.active-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-circles-container {
+  background-color: lightgray;
+
+  width: 50%;
+  height: 25px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-circle {
+  background-color: gray;
+
+  border-radius: 10px;
+
+  width: 10px;
+  height: 10px;
+}
+
+.active-circle {
+  background-color: white;
+}
