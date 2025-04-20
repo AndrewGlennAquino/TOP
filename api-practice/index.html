@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Working with API Practice</title>
+  </head>
+  <body>
+    <img src="#" />
+    <button id="change-image-button">Change Image</button>
+    <form>
+      <input type="text" id="input">
+      <button id="change-genre-button">Submit</button>
+    </form>
+    <script>
+      const img = document.querySelector("img");
+      const btn = document.getElementById("change-image-button");
+      const input = document.getElementById("input");
+      const submit = document.getElementById("change-genre-button");
+      fetch(
+        "https://api.giphy.com/v1/gifs/translate?api_key=iiwxh8YKiEnr48ioKzZnqHNIg1eraeEH&s=cats",
+        { mode: "cors" }
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (response) {
+          img.src = response.data.images.original.url;
+        });
+
+      btn.addEventListener("click", () => {
+        fetch(
+        "https://api.giphy.com/v1/gifs/translate?api_key=iiwxh8YKiEnr48ioKzZnqHNIg1eraeEH&s=cats",
+        { mode: "cors" }
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (response) {
+          img.src = response.data.images.original.url;
+        });
+      });
+
+      submit.addEventListener("click", (event) => {
+        event.preventDefault();
+        fetch(
+        `https://api.giphy.com/v1/gifs/translate?api_key=iiwxh8YKiEnr48ioKzZnqHNIg1eraeEH&s=${input.value}`,
+        { mode: "cors" }
+      )
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (response) {
+          img.src = response.data.images.original.url;
+        });
+      });
+    </script>
+  </body>
+</html>
