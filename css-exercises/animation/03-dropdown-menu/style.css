@@ -19,6 +19,24 @@
   background-color: rgb(99, 97, 97);
 
   display: none;
+
+  /* Solution */
+  animation: 1s drop 1 alternate;
+  transform-origin: top;
+}
+
+@keyframes drop {
+  from {
+    transform: scaleY(0);
+  }
+
+  50% {
+    transform: scaleY(1.15);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
 }
 
 ul.dropdown-menu li:hover {
