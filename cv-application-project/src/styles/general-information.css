@@ -1,11 +1,13 @@
 .general-information-container {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .general-information-container form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 25px;
 }
 
 .general-information-container input {
