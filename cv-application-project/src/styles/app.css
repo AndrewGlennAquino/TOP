@@ -1,9 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+:root {
+  --primary-color: #DDA448;
+  --secondary-color: #1E212B;
+  --background-color: #FCFCFC;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
 
+body {
   font-family: Montserrat;
+  
+  margin: 1rem;
+}
+
+.information-container {
+  border: 0.11rem solid var(--secondary-color);
+  border-radius: 2rem;
+  box-shadow: 0.25rem 0.25rem 0 var(--secondary-color);
+
+  width: 20%;
+
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

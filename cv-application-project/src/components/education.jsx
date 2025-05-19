@@ -4,10 +4,10 @@ import { useState } from "react";
 /**
  * TODO: add props for functionality
  */
-function GeneralInformation() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+function Education() {
+  const [schoolName, setSchoolName] = useState("");
+  const [major, setMajor] = useState("");
+  const [graduation, setGraduation] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   /**
@@ -27,38 +27,38 @@ function GeneralInformation() {
 
     setSubmitted(true);
 
-    console.log(name, email, phone);
+    console.log(schoolName, major, graduation);
   };
 
   return (
-    <div className="general-information-container">
-      <h2>General Information</h2>
+    <div className="education-container">
+      <h2>Education</h2>
 
       <form className={submitted ? "hidden" : null}>
         <div>
-          <label>Name: </label>
+          <label>School Name: </label>
           <input
             type="text"
-            onChange={(e) => setName(e.target.value)}
-            value={name ? name : ""}
+            onChange={(e) => setSchoolName(e.target.value)}
+            value={schoolName ? schoolName : ""}
           ></input>
         </div>
 
         <div>
-          <label>Email: </label>
+          <label>Major: </label>
           <input
             type="text"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email ? email : ""}
+            onChange={(e) => setMajor(e.target.value)}
+            value={major ? major : ""}
           ></input>
         </div>
 
         <div>
-          <label>Phone number: </label>
+          <label>Date Graduated: </label>
           <input
             type="text"
-            onChange={(e) => setPhone(e.target.value)}
-            value={phone ? phone : ""}
+            onChange={(e) => setGraduation(e.target.value)}
+            value={graduation ? graduation : ""}
           ></input>
         </div>
 
@@ -66,7 +66,7 @@ function GeneralInformation() {
       </form>
 
       <button
-        className={`edit ${submitted ? null : "hidden"}`}
+        className={`edit ${submitted ? "" : "hidden"}`}
         onClick={handleEdit}
       >
         Edit
@@ -75,4 +75,4 @@ function GeneralInformation() {
   );
 }
 
-export default GeneralInformation;
+export default Education;
